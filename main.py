@@ -1,8 +1,12 @@
 # main.py
 
 import argparse
-import os
-from core.recon import whois_lookup
+from core.recon import whois_lookup, dns_enum, port_scan
+from core.fingerprint import fingerprint
+from core.enumeration import dir_enum
+from core.scanning import vuln_scan
+
+
 
 def banner():
     print(r"""
@@ -19,7 +23,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description="WebArachnid CLI Scanner")
     parser.add_argument('--target', required=True, help='Target domain or IP')
     parser.add_argument('--module', required=True, choices=[
-        'whois', 'dns', 'fingerprint', 'ports', 'enum', 'vuln', 'auth', 'exploit'
+        'whois', 'dns','ports','fingerprint','direnum','vulnscan'  # <--- Added 'dns' module here
     ], help='Module to run')
     return parser.parse_args()
 
@@ -29,7 +33,16 @@ def main():
 
     if args.module == 'whois':
         whois_lookup.run(args.target)
-
+    elif args.module == 'dns':
+        dns_enum.run(args.target)
+    elif args.module == 'ports':
+        port_scan.run(args.target)
+    elif args.module == 'fingerprint':
+        fingerprint.run(args.target)
+    elif args.module == 'direnum':
+        dir_enum.run(args.target)
+    elif args.module == 'vulnscan':
+        vuln_scan.run(args.target)    
     else:
         print(f"[!] Module '{args.module}' not implemented yet.")
 

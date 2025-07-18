@@ -1,0 +1,4 @@
+FUZZ,url,redirectlocation,position,status_code,content_length,content_words,content_lines,content_type,duration,resultfile,Ffufhash
+robots.txt,http://google.com/robots.txt,https://www.google.com/robots.txt,7,301,230,9,7,text/html; charset=UTF-8,58.078274ms,,da6b47
+sitemap.xml,http://google.com/sitemap.xml,https://www.google.com/sitemap.xml,8,301,231,9,7,text/html; charset=UTF-8,105.462534ms,,da6b48
+dashboard,http://google.com/dashboard,https://www.google.com/dashboard,3,301,229,9,7,text/html; charset=UTF-8,126.971247ms,,da6b43

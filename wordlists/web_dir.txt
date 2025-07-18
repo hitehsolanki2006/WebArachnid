@@ -1,0 +1,10 @@
+admin
+login
+dashboard
+config
+uploads
+backup
+robots.txt
+sitemap.xml
+index.php
+.htaccess
